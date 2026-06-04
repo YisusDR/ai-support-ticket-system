@@ -1,26 +1,131 @@
-@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Native <dialog> modal styles ── */
+dialog {
+  color: inherit;
+}
+dialog::backdrop {
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(4px);
+}
+dialog[open] {
+  animation: slideUp 0.25s ease-out;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+/* ================================================
+   Base & Reset
+   ================================================ */
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    color-scheme: dark;
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply bg-slate-900 text-slate-100 font-sans antialiased;
+    background-image: radial-gradient(
+        ellipse at 20% 0%,
+        rgba(99, 102, 241, 0.06) 0%,
+        transparent 50%
+      ),
+      radial-gradient(
+        ellipse at 80% 0%,
+        rgba(139, 92, 246, 0.04) 0%,
+        transparent 50%
+      );
+    background-attachment: fixed;
+  }
+
+  * {
+    @apply border-slate-700/50;
+  }
+
+  ::selection {
+    @apply bg-indigo-500/30 text-indigo-100;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    @apply w-1.5;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-slate-900;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-slate-700 rounded-full;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-slate-600;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* ================================================
+   Component Layer
+   ================================================ */
+@layer components {
+  /* Glass card */
+  .glass-card {
+    @apply bg-slate-800/60 backdrop-blur-sm border border-slate-700/50 rounded-xl;
+  }
+
+  /* Glow effects */
+  .glow-indigo {
+    box-shadow: 0 0 20px rgba(99, 102, 241, 0.15);
+  }
+
+  .glow-violet {
+    box-shadow: 0 0 20px rgba(139, 92, 246, 0.15);
+  }
+
+  /* Input base */
+  .input-base {
+    @apply w-full px-4 py-2.5 bg-slate-800/80 border border-slate-700/80 rounded-lg
+           text-slate-100 placeholder-slate-500 text-sm
+           focus:outline-none focus:ring-2 focus:ring-indigo-500/50 focus:border-indigo-500/70
+           transition-all duration-200;
+  }
+
+  /* Btn base */
+  .btn-base {
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg font-medium text-sm
+           transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  /* Sidebar link */
+  .sidebar-link {
+    @apply flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-slate-400
+           hover:text-slate-100 hover:bg-slate-800/80 transition-all duration-150;
+  }
+
+  .sidebar-link.active {
+    @apply text-indigo-300 bg-indigo-500/10 border border-indigo-500/20;
+  }
+}
+
+/* ================================================
+   Utility Layer
+   ================================================ */
+@layer utilities {
+  .text-gradient {
+    @apply bg-gradient-to-r from-indigo-400 to-violet-400 bg-clip-text text-transparent;
+  }
+
+  .border-gradient {
+    border-image: linear-gradient(135deg, #6366f1, #8b5cf6) 1;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.3s ease-in-out;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.4s ease-out;
+  }
 }
