@@ -13,15 +13,15 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 const variantClasses: Record<Variant, string> = {
   primary:
-    'bg-indigo-600 hover:bg-indigo-500 text-white shadow-lg shadow-indigo-500/20 hover:shadow-indigo-500/30',
+    'bg-emerald-600 hover:bg-emerald-700 text-white shadow-md shadow-emerald-600/10 hover:shadow-emerald-600/20',
   secondary:
-    'bg-slate-700 hover:bg-slate-600 text-slate-100 border border-slate-600 hover:border-slate-500',
+    'bg-slate-50 hover:bg-slate-100 text-slate-700 border border-slate-200 hover:border-slate-350 shadow-sm',
   ghost:
-    'bg-transparent hover:bg-slate-800/80 text-slate-400 hover:text-slate-100',
+    'bg-transparent hover:bg-slate-50 text-slate-600 hover:text-slate-900',
   danger:
-    'bg-red-600/20 hover:bg-red-600/30 text-red-400 border border-red-500/30 hover:border-red-500/50',
+    'bg-red-50 hover:bg-red-100/80 text-red-600 border border-red-200/50 hover:border-red-200',
   success:
-    'bg-emerald-600/20 hover:bg-emerald-600/30 text-emerald-400 border border-emerald-500/30 hover:border-emerald-500/50',
+    'bg-emerald-50 hover:bg-emerald-100/80 text-emerald-700 border border-emerald-250/50 hover:border-emerald-250',
 }
 
 const sizeClasses: Record<Size, string> = {

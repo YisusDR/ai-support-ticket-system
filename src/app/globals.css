@@ -21,7 +21,7 @@ dialog[open] {
    ================================================ */
 @layer base {
   :root {
-    color-scheme: dark;
+    color-scheme: light;
   }
 
   html {
@@ -29,26 +29,26 @@ dialog[open] {
   }
 
   body {
-    @apply bg-slate-900 text-slate-100 font-sans antialiased;
+    @apply bg-white text-slate-950 font-sans antialiased;
     background-image: radial-gradient(
         ellipse at 20% 0%,
-        rgba(99, 102, 241, 0.06) 0%,
+        rgba(16, 185, 129, 0.03) 0%,
         transparent 50%
       ),
       radial-gradient(
         ellipse at 80% 0%,
-        rgba(139, 92, 246, 0.04) 0%,
+        rgba(99, 102, 241, 0.02) 0%,
         transparent 50%
       );
     background-attachment: fixed;
   }
 
   * {
-    @apply border-slate-700/50;
+    @apply border-slate-100;
   }
 
   ::selection {
-    @apply bg-indigo-500/30 text-indigo-100;
+    @apply bg-emerald-500/20 text-emerald-950;
   }
 
   /* Custom scrollbar */
@@ -56,13 +56,13 @@ dialog[open] {
     @apply w-1.5;
   }
   ::-webkit-scrollbar-track {
-    @apply bg-slate-900;
+    @apply bg-slate-50;
   }
   ::-webkit-scrollbar-thumb {
-    @apply bg-slate-700 rounded-full;
+    @apply bg-slate-200 rounded-full;
   }
   ::-webkit-scrollbar-thumb:hover {
-    @apply bg-slate-600;
+    @apply bg-slate-300;
   }
 }
 
@@ -72,23 +72,23 @@ dialog[open] {
 @layer components {
   /* Glass card */
   .glass-card {
-    @apply bg-slate-800/60 backdrop-blur-sm border border-slate-700/50 rounded-xl;
+    @apply bg-white border border-slate-100 rounded-xl shadow-sm;
   }
 
   /* Glow effects */
   .glow-indigo {
-    box-shadow: 0 0 20px rgba(99, 102, 241, 0.15);
+    box-shadow: 0 0 20px rgba(99, 102, 241, 0.05);
   }
 
   .glow-violet {
-    box-shadow: 0 0 20px rgba(139, 92, 246, 0.15);
+    box-shadow: 0 0 20px rgba(139, 92, 246, 0.05);
   }
 
   /* Input base */
   .input-base {
-    @apply w-full px-4 py-2.5 bg-slate-800/80 border border-slate-700/80 rounded-lg
-           text-slate-100 placeholder-slate-500 text-sm
-           focus:outline-none focus:ring-2 focus:ring-indigo-500/50 focus:border-indigo-500/70
+    @apply w-full px-4 py-2.5 bg-white border border-slate-200 rounded-lg
+           text-slate-900 placeholder-slate-400 text-sm
+           focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500/50
            transition-all duration-200;
   }
 
@@ -100,12 +100,12 @@ dialog[open] {
 
   /* Sidebar link */
   .sidebar-link {
-    @apply flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-slate-400
-           hover:text-slate-100 hover:bg-slate-800/80 transition-all duration-150;
+    @apply flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-slate-600
+           hover:text-slate-900 hover:bg-slate-50 transition-all duration-150;
   }
 
   .sidebar-link.active {
-    @apply text-indigo-300 bg-indigo-500/10 border border-indigo-500/20;
+    @apply text-emerald-700 bg-emerald-50/70 border border-emerald-500/10 font-semibold;
   }
 }
 

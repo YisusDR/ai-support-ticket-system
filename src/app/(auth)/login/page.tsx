@@ -6,7 +6,6 @@ import { useRouter } from 'next/navigation'
 import { createClient } from '@/lib/supabase/client'
 import { Button } from '@/components/ui/Button'
 import { Input } from '@/components/ui/Input'
-import { Card } from '@/components/ui/Card'
 
 export default function LoginPage() {
   const router = useRouter()
@@ -58,15 +57,15 @@ export default function LoginPage() {
 
   return (
     <div className="animate-slide-up">
-      <Card variant="elevated" className="shadow-2xl shadow-black/40">
-        <div className="mb-6">
-          <h2 className="text-xl font-semibold text-slate-100">Welcome back</h2>
+      <div className="bg-white border border-slate-100 rounded-2xl shadow-xl shadow-slate-100/50 p-8">
+        <div className="mb-8">
+          <h2 className="text-2xl font-bold text-slate-950 tracking-tight">Welcome back</h2>
           <p className="text-sm text-slate-500 mt-1">
             Sign in to your account to continue
           </p>
         </div>
 
-        <form onSubmit={handleLogin} className="space-y-4">
+        <form onSubmit={handleLogin} className="space-y-5">
           <Input
             id="email"
             type="email"
@@ -76,6 +75,7 @@ export default function LoginPage() {
             onChange={(e) => setEmail(e.target.value)}
             required
             autoComplete="email"
+            className="focus:ring-emerald-500/20 focus:border-emerald-500"
           />
 
           <Input
@@ -87,22 +87,22 @@ export default function LoginPage() {
             onChange={(e) => setPassword(e.target.value)}
             required
             autoComplete="current-password"
+            className="focus:ring-emerald-500/20 focus:border-emerald-500"
           />
 
           {error && (
-            <div className="flex items-center gap-2 px-4 py-3 rounded-lg bg-red-500/10 border border-red-500/20 text-red-400 text-sm animate-fade-in">
-              <svg className="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <div className="flex items-center gap-2.5 px-4 py-3 rounded-lg bg-red-50 border border-red-100 text-red-700 text-sm animate-fade-in">
+              <svg className="w-4 h-4 flex-shrink-0 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
               </svg>
-              {error}
+              <span>{error}</span>
             </div>
           )}
 
           <Button
             type="submit"
-            variant="primary"
-            className="w-full mt-2"
             isLoading={isLoading}
+            className="w-full mt-2 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold shadow-md shadow-emerald-500/10 focus:ring-emerald-500/20"
           >
             Sign In
           </Button>
@@ -112,12 +112,12 @@ export default function LoginPage() {
           Don&apos;t have an account?{' '}
           <Link
             href="/register"
-            className="text-indigo-400 hover:text-indigo-300 font-medium transition-colors"
+            className="text-emerald-600 hover:text-emerald-700 font-semibold transition-colors"
           >
             Create one
           </Link>
         </p>
-      </Card>
+      </div>
     </div>
   )
 }

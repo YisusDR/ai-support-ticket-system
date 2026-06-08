@@ -20,8 +20,12 @@ export interface Ticket {
   priority: TicketPriority
   customer_id: string
   assigned_to: string | null
+  // AI fields populated by n8n automation
   ai_summary: string | null
   ai_suggestions: string | null
+  ai_risk_level: string | null       // 'high' | 'medium' | 'low' — raw string from n8n
+  ai_model_version: string | null    // e.g. 'gemini-1.5-pro'
+  ticket_priority: string | null     // legacy field kept for backwards compat
   created_at: string
   updated_at: string
   // Optional join fields

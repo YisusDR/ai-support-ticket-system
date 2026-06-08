@@ -12,13 +12,13 @@ export const Card = forwardRef<HTMLDivElement, CardProps>(
     const variants = {
       default: 'glass-card',
       elevated:
-        'bg-slate-800/80 backdrop-blur-sm border-slate-700/60 shadow-xl shadow-black/20',
-      ai: 'border-indigo-500/25 shadow-lg shadow-indigo-500/10',
+        'bg-white border-slate-100 shadow-sm shadow-slate-100/80',
+      ai: 'border-emerald-200/50 shadow-lg shadow-emerald-500/5',
     }
 
     const aiBackground =
       variant === 'ai'
-        ? 'bg-gradient-to-br from-indigo-950/80 via-slate-900/90 to-violet-950/80 backdrop-blur-sm'
+        ? 'bg-gradient-to-br from-emerald-50/80 via-white to-slate-50/80'
         : ''
 
     return (
